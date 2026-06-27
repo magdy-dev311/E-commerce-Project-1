@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Login &amp; Sign Up</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+    <div class="flex min-h-screen w-full flex-col justify-center lg:justify-normal lg:flex-row">
+        <!-- Brand Visual Side (Hidden on Mobile) -->
+        <div class="relative hidden lg:flex lg:w-1/2 xl:w-3/5 bg-primary overflow-hidden items-center justify-center">
+            <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
+                data-alt="Modern bright retail clothing store interior"
+                style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBYRW7SS1unXjaonQkHfuIy61AX0CfhZab1XVx_SnDQBUqbMGnpphQiQkWtrEH8yfLy1s-ZcpZPSo78MLeh19W7HBWqrYHLXMIY3j-HwlqASPns_otKcT4DIBXa7dQ0N6VFJUWLju0ZoXpGToAeqo9V3xYsxAOl6Ymgw_7iIw4GHDXwfiZ-DIY5e0IpGvwHo3Gu8g_yTfiTTMH-0efRoGp6ByHjouR-PhbgA1cAfv-XJHp3Z0PHHvC9Pw21hUs3X93Z8EaBf8LK9QM&quot;);">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
+            <div class="relative z-20 px-12 text-white max-w-xl">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="size-10 bg-white rounded-lg flex items-center justify-center text-primary">
+                        <svg class="size-6" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold tracking-tight" >General Retail</span>
+                </div>
+                <h1 class="text-5xl font-bold leading-tight mb-6" >Experience the future of modern shopping.
+                </h1>
+                <p class="text-lg opacity-90 leading-relaxed mb-8" >Join thousands of shoppers and discover
+                    curated collections, exclusive deals, and seamless checkout for all your lifestyle needs.</p>
+                <div class="flex gap-4">
+                    <div class="flex -space-x-3">
+                        <img class="size-10 rounded-full border-2 border-primary object-cover"
+                            data-alt="Customer avatar woman smiling"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBia7F8vmhgQl68ikVo8n0Riqtxz3_QfD6pdSzaYRyS1W5YfRPfOoCdNVPFBY5Mnb6QzbdE9wERXRKgTBrDVMeDttVvnfy-mhep9DryTX04xs8tKYD4gI4TBSCME8mDwz2QgOvN2-u7M3nHlwqp7m5u6GcQ6mxkUMu-ZaVR8sfMv-iPhtzDnElC5wBtWPQ-sMeoaBLAF3TM05CFjPaYLfvFXadfnPL-BfzyrS9EppIvoFPgN6NpKnFOuvH5HBss7AcbS1eVdCuQaak"
+                            >
+                        <img class="size-10 rounded-full border-2 border-primary object-cover"
+                            data-alt="Customer avatar man smiling"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCArvbUJdt1SdOGACa4ENul-edAakHU7nKfBZJetGV1qjahfMnF45ve2Jxo7RV9R_WbRnzYpkLnBxmh3zMNTOvPstiHbN1YsxsH183gR7SBbKNbc_e4t4VzQcJfO9k-pJMdCJWjENe_5fyYCvChZ8WlJdOBVSdwAdCatKh0HpRwT9Fe5YWPajEr9ee3s5HNbk5B-741yUvmszKHGtIyzyJv65uHR_hQiph1NipFexFxpZdpTZGAEJ4N1AGrayrbOnJ3eGWmsd28C2I"
+                            >
+                        <img class="size-10 rounded-full border-2 border-primary object-cover"
+                            data-alt="Customer avatar woman with glasses"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrCgAyZFFL5EZogH02AloTVXsLzwSi9jH6qULbtSnCdOS23uN31--8qUMkXN_qPDSgiu2gXmSVBw-Xcd4OGft19cI_DR0Y_GG-nWldSXZA98Ls-NbYFUpeHlRvHuvc1PBcCckvVap_4kkrkgXuwLbgLe4SYm_uvhEPicoM0BDURG5KkvcVtXsVxOAdciHY-AnxWgm3OgYzKFRC0McVDe_7SeKKhtR18z4ucdaaU34d0dyUlSsLROOESGqZgCsHIJ-FPWF2R4ngl6w"
+                            >
+                    </div>
+                    <p class="text-sm self-center">50k+ Happy Customers</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="login-form" class="w-full flex flex-col justify-center items-center gap-10">
+            <div class="flex flex-col justify-center items-center gap-3">
+                <h2 class="text-4xl font-bold">Welcome Back</h2>
+                <p class="text-gray-400">Please enter your details to sign in</p>
+            </div>
+            <form class=" w-[90%] sm:w-[45%] flex flex-col gap-5">
+                <div class="flex flex-col gap-1">
+                    <label for="login-email">Email</label>
+                    <input required type="email" id="login-email" placeholder="karem@example" class="rounded-md border-gray-300 border-[2px]">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="login-password">Password</label>
+                    <input required type="password" id="login-password" placeholder="●●●●●●●●●●" class="rounded-md border-gray-300 border-[2px]">
+                </div>
+                <div class="flex items-center gap-2">
+                    <input class="rounded-sm border-gray-300 border-[1.5px] focus:ring-0 focus:outline-none focus:ring-offset-0 cursor-pointer" type="checkbox" name="remember" id="remember">
+                    <label for="remember" class="text-gray-400 font-medium">Remember me for 30 Days</label>
+                </div>
+                
+                <button type="submit" id="login-btn" class="bg-blue-600 rounded-md text-xl text-white py-2 my-5">Login</button>
+                
+                <div class="text-center">
+                    <button id="toggleToSignup" class="text-blue-600 font-medium">Create Account</button>
+                </div>
+            </form>
+        </div>
+
+
+
+
+        <div id="signup-form" class="w-full flex flex-col justify-center items-center gap-10">
+            <div class="flex flex-col justify-center items-center gap-3">
+                <h2 class="text-4xl font-bold">Welcome</h2>
+                <p class="text-gray-400">Please enter your details to sign up</p>
+            </div>
+            <form class=" w-[90%] sm:w-[45%] flex flex-col gap-5">
+                <div class="flex flex-col gap-1">
+                    <label for="signup-full-name">Full Name</label>
+                    <input required type="text" id="signup-full-name" placeholder="Alex Mark" class="rounded-md border-gray-300 border-[2px]">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="signup-email">Email</label>
+                    <input required type="email" id="signup-email" placeholder="karem@example" class="rounded-md border-gray-300 border-[2px]">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="signup-password">Password</label>
+                    <input required type="password" id="signup-password" placeholder="●●●●●●●●●●"
+                        class="rounded-md border-gray-300 border-[2px]">
+                </div>
+                <div class="flex items-center gap-2">
+                    <input
+                        class="rounded-sm border-gray-300 border-[1.5px] focus:ring-0 focus:outline-none focus:ring-offset-0 cursor-pointer"
+                        type="checkbox" name="remember" id="remember">
+                    <label for="remember" class="text-gray-400 font-medium">Accept the terms</label>
+                </div>
+        
+                <button type="submit" id="signup-btn" class="bg-blue-600 rounded-md text-xl text-white py-2 my-5">Sign Up</button>
+        
+                <div class="text-center">
+                    <button id="toggleToLogin" class="text-blue-600 font-medium">Already have Account</button>
+                </div>
+            </form>
+        </div>
+
+
+
+
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
