@@ -2,6 +2,9 @@ let slider = document.getElementById("slider")
 let cart = JSON.parse(localStorage.getItem("cart")) || []
 let cartCount = document.getElementById("cartCount")
 cartCount.textContent = cart.length
+
+let user = JSON.parse(localStorage.getItem("user")) || null
+
 let products = [
     {
         id: 1,
@@ -53,7 +56,7 @@ products.forEach((product) => {
             <div class="flex flex-col mx-2 relative group group-hover:translate-y-0 group-hover:opacity-100">
                 <button
                     onclick="addToCart(${product.id})"
-                    class="opacity-0 duration-300 translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 g absolute z-50 left-2 right-2 py-2 top-[67%] cursor-pointer text-white bg-blue-700 font-semibold rounded-md">Add
+                    class="hidden lg:block opacity-0 duration-300 translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 g absolute z-50 left-2 right-2 py-2 top-[67%] cursor-pointer text-white bg-blue-700 font-semibold rounded-md">Add
                     To Cart
                 </button>
                 <div class="relative">
@@ -87,14 +90,19 @@ products.forEach((product) => {
 })
 
 function addToCart(id) {
-    let product = products.find((pro)=>pro.id===id)
-    let exist = cart.find((item)=>item.id === id)
-    if (!exist) {
-        cart.push(product)
-        localStorage.setItem("cart", JSON.stringify(cart))
-        cartCount.textContent = cart.length
-        alert("Product Added Succesfully")
+    if (user) {
+        let product = products.find((pro) => pro.id === id)
+        let exist = cart.find((item) => item.id === id)
+        if (!exist) {
+            cart.push({ ...product, quantity: 1 })
+            localStorage.setItem("cart", JSON.stringify(cart))
+            cartCount.textContent = cart.length
+            alert("Product Added Succesfully")
+        } else {
+            alert("Product Is Already Exist")
+        }
     } else {
-        alert("Product Is Already Exist")
+        alert("Login or Signup to Complete Process")
+        window.location.href = "auth.html"
     }
 }
