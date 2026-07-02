@@ -5,6 +5,16 @@ cartCount.textContent = cart.length
 
 let user = JSON.parse(localStorage.getItem("user")) || null
 
+let profileBtn = document.getElementById("profileBtn")
+
+profileBtn.addEventListener("click", ()=>{
+    if(!user){
+        window.location.href = "auth.html"
+    }else {
+        window.location.href = "profile.html"
+    }
+})
+
 let products = [
     {
         id: 1,

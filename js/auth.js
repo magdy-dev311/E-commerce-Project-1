@@ -31,18 +31,14 @@ let users = JSON.parse(window.localStorage.getItem("users")) || [];
 signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let name = signupFullNameInput.value;
-    let email = signupEmailInput.value;
+    let name = signupFullNameInput.value.trim();
+    let email = signupEmailInput.value.trim();
     let password = signupPasswordInput.value;
-
-    console.log(name);
-    console.log(email);
-    console.log(password);
 
     existingUser = users.find((user) => user.email === email);
 
     if (!existingUser) {
-        let newUser = { name, email, password };
+        let newUser = { id: Date.now(), name, email, password };
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
         signupFullNameInput.value = "";
@@ -58,7 +54,7 @@ signupForm.addEventListener("submit", (e) => {
 
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault()
-    let email = loginEmailInput.value;
+    let email = loginEmailInput.value.trim();
     let password = loginPasswordInput.value;
     let user = users.find((user) => user.email === email);
 
@@ -66,7 +62,7 @@ loginForm.addEventListener("submit", (e) => {
         if (user.password === password) {
             localStorage.setItem("user", JSON.stringify(user))
             alert("Login Successfully")
-            window.location.href="index.html"
+            window.location.href = "index.html"
         } else {
             alert("Email or Password Incorrect")
         }
