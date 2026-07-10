@@ -35,10 +35,10 @@ signupForm.addEventListener("submit", (e) => {
     let email = signupEmailInput.value.trim();
     let password = signupPasswordInput.value;
 
-    existingUser = users.find((user) => user.email === email);
+    let existingUser = users.find((user) => user.email === email);
 
     if (!existingUser) {
-        let newUser = { id: Date.now(), name, email, password };
+        let newUser = { id: Date.now(), name, email, password, role: email==="admin@gmail.com"?"admin":"user" };
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
         signupFullNameInput.value = "";
@@ -62,7 +62,11 @@ loginForm.addEventListener("submit", (e) => {
         if (user.password === password) {
             localStorage.setItem("user", JSON.stringify(user))
             alert("Login Successfully")
-            window.location.href = "index.html"
+            if (user.role === "admin") {
+                window.location.href = "admin-pages/add-category.html"
+            }else {
+                window.location.href = "index.html"
+            }
         } else {
             alert("Email or Password Incorrect")
         }

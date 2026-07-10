@@ -16,9 +16,34 @@
     <!-- JavaScript (jQuery Required) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <link rel="stylesheet" href="style.css">
     <title>Home</title>
+    <style>
+        header a {
+            transition: .3s;
+        }
+
+        header .hov:hover {
+            color: oklch(54.6% 0.245 262.881)
+        }
+
+        header ul::-webkit-scrollbar {
+            height: 6.2px;
+        }
+
+        header ul::-webkit-scrollbar-track {
+            background-color: rgba(0, 0, 0, 0.09);
+
+        }
+
+        header ul::-webkit-scrollbar-thumb {
+            background-color: oklch(54.742% 0.24331 262.725 / 0.836);
+            border-radius: 99px;
+        }
+
+        header ul::-webkit-scrollbar-thumb:hover {
+            background-color: oklch(54.6% 0.245 262.881);
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">
@@ -28,17 +53,20 @@
             <a href="">
                 <div class="flex items-center gap-2 sm:gap-3">
                     <div class="w-8 h-8 flex items-center justify-center rounded-md bg-blue-600"><i
-                            class="fa-solid fa-bag-shopping text-white text-xl"></i></div>
-                    <h3 class="text-xl sm:text-2xl font-bold">Store</h3>
+                            class=" fa-solid fa-bag-shopping text-white text-xl"></i></div>
+                    <h3 class="hov text-xl sm:text-2xl font-bold">Store</h3>
                 </div>
             </a>
             <div class="text-xl sm:text-2xl flex items-center gap-2 sm:gap-3 md:gap-5">
-                <button id="profileBtn" class="hover:text-blue-600 cursor-pointer"><i class="fa-solid fa-circle-user"></i></button>
+                <a id="adminLink" href="admin-pages/add-category.html"
+                    class="hidden bg-blue-600 text-white px-3 py-1 rounded-md text-xl font-bold hover:bg-blue-700 hover:text-white duration-300">Admin
+                    Dashboard</a>
+                <button id="profileBtn" class="hover:text-blue-600 cursor-pointer"><i
+                        class="fa-solid fa-circle-user"></i></button>
                 <div>
                     <a href="shopping-cart.html">
-                        <i class="fa-solid fa-cart-shopping relative">
-                            <span
-                                id="cartCount"
+                        <i class="hov fa-solid fa-cart-shopping relative">
+                            <span id="cartCount"
                                 class="bg-blue-600 h-[23px] w-[23px] flex items-center justify-center rounded-full absolute right-[-5px] top-[-12px] text-sm text-white"></span>
                         </i>
                     </a>
@@ -83,8 +111,7 @@
             <h2 class="text-3xl font-extrabold lg:text-7xl">New Season,<br>New Style</h2>
             <p class="text-white/80 lg:text-xl lg:font-medium">Upgrade your lifestyle with our
                 premium collection of curated essentials for the modern explorer.</p>
-            <a
-                href="shop.html"
+            <a href="shop.html"
                 class="w-[150px] h-[35px] lg:w-[180px] lg:h-[45px] lg:rounded-xl lg:font-medium flex justify-center rounded items-center bg-blue-700 text-lg sm:text-xl font-medium cursor-pointer hover:bg-blue-800 transition duration-300 ease-in-out">Shop
                 Now</a>
         </div>
@@ -142,7 +169,7 @@
             </div>
         </div>
         <div id="slider" class="slider">
-            
+
         </div>
     </section>
 
@@ -261,7 +288,7 @@
             ]
         });
     </script>
-    
+
 </body>
 
 </html>

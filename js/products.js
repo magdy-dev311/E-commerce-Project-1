@@ -15,6 +15,10 @@ profileBtn.addEventListener("click", ()=>{
     }
 })
 
+if (user.role === "admin") {
+    document.getElementById("adminLink").classList.remove("hidden")
+}
+
 let products = [
     {
         id: 1,

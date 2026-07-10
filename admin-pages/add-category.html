@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Categories Management | Azure Meridian</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#ffffff",
+                        "on-background": "#111418",
+                        "primary-fixed-dim": "#a8c8ff",
+                        "outline-variant": "#c1c6d5",
+                        "secondary-fixed": "#d5e3ff",
+                        "on-tertiary-fixed": "#321200",
+                        "background": "#f6f7f8",
+                        "surface-container-highest": "#e6e8f1",
+                        "on-primary": "#ffffff",
+                        "secondary": "#455f89",
+                        "on-secondary-fixed": "#001b3c",
+                        "on-surface-variant": "#414753",
+                        "inverse-primary": "#a8c8ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e0e2ec",
+                        "tertiary": "#964400",
+                        "secondary-container": "#b2cdfd",
+                        "on-surface": "#111418",
+                        "primary": "#137fec",
+                        "outline": "#e5e7eb",
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "on-primary-fixed-variant": "#004689",
+                        "tertiary-container": "#bc5700",
+                        "surface-bright": "#ffffff",
+                        "inverse-on-surface": "#f9f9ff",
+                        "inverse-surface": "#101922",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-container": "#0074db",
+                        "secondary-fixed-dim": "#adc8f7",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-low": "#f6f7f8",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#3c5780",
+                        "on-secondary-fixed-variant": "#2c4770",
+                        "surface-tint": "#137fec",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebedf7",
+                        "surface-dim": "#f6f7f8",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f1f3fd",
+                        "primary-fixed": "#d5e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-nav-shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .editorial-gradient {
+            background: linear-gradient(135deg, #137fec 0%, #004689 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body min-h-screen">
+    <!-- Shell Layout -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="h-screen w-64 hidden lg:flex flex-col sticky top-0 bg-slate-50 dark:bg-slate-900 p-4 gap-2 z-40">
+            <div class="mb-8 px-2">
+                <span id="adminName" class="text-lg font-black text-slate-900 dark:text-slate-50 tracking-tighter">
+                    Azure Meridian
+                </span>
+            </div>
+            <nav class="flex flex-col gap-1">
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg group"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                    <span class="font-inter text-sm">Products</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-bold rounded-lg active-nav-shadow group"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">category</span>
+                    <span class="font-inter text-sm">Categories</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg group"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">group</span>
+                    <span class="font-inter text-sm">Users</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg group"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">local_mall</span>
+                    <span class="font-inter text-sm">Orders</span>
+                </a>
+                <div class="mt-8 pt-8 border-t border-outline-variant/30">
+                    <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg group"
+                        href="../profile.html">
+                        <span class="material-symbols-outlined text-[20px]">person</span>
+                        <span class="font-inter text-sm">Profile</span>
+                    </a>
+                    <button
+                        class="hover:translate-x-1 duration-200 w-full flex items-center gap-3 px-4 py-3 text-error hover:bg-error/5 rounded-lg group"
+                        id="signOutBtn">
+                        <span class="material-symbols-outlined text-[20px]">logout</span>
+                        <span class="font-inter text-sm">Sign Out</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+        <!-- Main Content Canvas -->
+        <main class="flex-1 min-w-0 flex flex-col">
+            <!-- Top Header -->
+            <header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-30 px-6 py-6 lg:px-10">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-black tracking-tight text-on-surface">
+                            Categories Management
+                        </h1>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="../index.html"
+                            class="bg-surface-container hover:bg-surface-container-high text-on-surface px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200">
+                            View Live Store
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <!-- Scrollable Content -->
+            <div class="p-6 lg:p-10 max-w-6xl mx-auto w-full space-y-8">
+                <!-- Category Creation Form Card -->
+                <section
+                    class="bg-surface rounded-xl shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div class="p-6 border-b border-outline-variant/20 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">add_circle</span>
+                        <h2 class="text-lg font-extrabold tracking-tight">Add New Category</h2>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                            <!-- Input Field -->
+                            <div class="space-y-4">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Category
+                                        Name</label>
+                                    <input id="categoryNameInput"
+                                        class="w-full bg-surface-container border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary transition-all text-on-surface"
+                                        placeholder="e.g. Summer Essentials" type="text" />
+                                </div>
+                                <div class="pt-4 flex items-center gap-4">
+                                    <button
+                                        class="bg-primary hover:scale-105 active:scale-95 text-on-primary px-6 py-3 rounded-lg font-bold text-sm transition-all duration-200 flex items-center gap-2"
+                                        type="submit">
+                                        <span class="material-symbols-outlined text-sm">save</span>
+                                        Save Category
+                                    </button>
+                                    <button
+                                        class="text-on-surface-variant hover:text-on-surface font-bold text-sm transition-colors"
+                                        type="button" id="discardBtn">
+                                        Discard
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Image Upload Placeholder -->
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Category
+                                    Image</label>
+                                <div
+                                    class="group relative aspect-[16/6] rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all hover:bg-surface-container-high">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-outline-variant group-hover:text-primary transition-colors">cloud_upload</span>
+                                    <p class="text-xs font-medium text-on-surface-variant mt-2">Click or drag image to
+                                        upload</p>
+                                    <p class="text-[10px] text-outline-variant mt-1 uppercase tracking-tighter">
+                                        Recommended: 1200 x 450 px</p>
+                                    <input id="uploadImageInput" class="absolute inset-0 opacity-0 cursor-pointer"
+                                        type="file" accept="image/*" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <!-- Current Categories Grid -->
+                <section class="space-y-6">
+                    <h2 class="text-xl text-blue-700 font-black tracking-tight">Active Categories</h2>
+                    <!-- Bento-style Grid -->
+                    <div id="categoriesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <!-- Bottom Nav for Mobile -->
+    <nav
+        class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-3 pb-safe px-4 lg:hidden bg-white/90 dark:bg-slate-950/90 backdrop-blur-lg shadow-[0_-1px_3px_0_rgba(0,0,0,0.05)] border-t border-slate-100 dark:border-slate-800">
+        <a href="" class="flex flex-col items-center text-slate-400 dark:text-slate-500 py-1">
+            <span class="material-symbols-outlined">inventory_2</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Products</span>
+        </a>
+        <a href="" class="flex flex-col items-center text-blue-600 dark:text-blue-400 py-1">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">category</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Categories</span>
+        </a>
+        <a href="" class="flex flex-col items-center text-slate-400 dark:text-slate-500 py-1">
+            <span class="material-symbols-outlined">group</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Users</span>
+        </a>
+        <a href="../profile.html" class="flex flex-col items-center text-slate-400 dark:text-slate-500 py-1">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+        </a>
+    </nav>
+    <script>
+        // Simple Interaction logic for adding visual feedback
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Hover reveal effects are handled via Tailwind's group-hover
+
+    </script>
+    <script src="js/add-category.js"></script>
+</body>
+
+</html>
