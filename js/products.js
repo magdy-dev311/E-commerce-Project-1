@@ -2,15 +2,16 @@ let slider = document.getElementById("slider")
 let cart = JSON.parse(localStorage.getItem("cart")) || []
 let cartCount = document.getElementById("cartCount")
 cartCount.textContent = cart.length
+let categoriesContainer = document.getElementById("categoriesContainer")
 
 let user = JSON.parse(localStorage.getItem("user")) || null
 
 let profileBtn = document.getElementById("profileBtn")
 
-profileBtn.addEventListener("click", ()=>{
-    if(!user){
+profileBtn.addEventListener("click", () => {
+    if (!user) {
         window.location.href = "auth.html"
-    }else {
+    } else {
         window.location.href = "profile.html"
     }
 })
@@ -19,48 +20,78 @@ if (user.role === "admin") {
     document.getElementById("adminLink").classList.remove("hidden")
 }
 
-let products = [
+
+let categories = JSON.parse(localStorage.getItem("categories")) || [
+    {
+        name: "Electronics",
+        image: "../Images/card-1.png"
+    },
+    {
+        name: "Mans",
+        image: "../Images/Hero - img.png"
+    },
+    {
+        name: "Home Decor",
+        image: "../Images/card-3.png"
+    },
+    {
+        name: "Beauty",
+        image: "../Images/card-4.png"
+    },
+]
+
+function renderCategories() {
+    categoriesContainer.innerHTML = ""
+    categories.forEach(e => {
+        categoriesContainer.innerHTML += `
+            <div class="relative rounded-lg overflow-hidden aspect-square group cursor-pointer">
+                <img class="w-full h-full object-cover group-hover:scale-120 transition cursor-pointer"
+                    src="${e.image}">
+                <div class="absolute inset-0 z-20 group-hover:bg-black/30 transition"></div>
+                <span class="absolute bottom-5 left-5 z-30 text-white text-2xl font-bold">${e.name}</span>
+            </div>
+        `
+    })
+}
+
+renderCategories()
+
+let products = JSON.parse(localStorage.getItem("products")) || [
     {
         id: 1,
         name: "Modern Desk Lamp",
-        img: "Images/slider-1.png",
+        image: "Images/slider-1.png",
         price: 30.00,
-        reviews: 128,
     },
     {
         id: 2,
         name: "Smart Watch",
-        img: "Images/slider-2.png",
+        image: "Images/slider-2.png",
         price: 200.00,
-        reviews: 600,
     },
     {
         id: 3,
         name: "Wall Clock",
-        img: "Images/slider-3.png",
+        image: "Images/slider-3.png",
         price: 80.00,
-        reviews: 800,
     },
     {
         id: 4,
         name: "Laptop",
-        img: "Images/slider-4.png",
+        image: "Images/slider-4.png",
         price: 3000.00,
-        reviews: 3000,
     },
     {
         id: 5,
         name: "iPhone 16 Pro Max",
-        img: "Images/slider-5.webp",
+        image: "Images/slider-5.webp",
         price: 8000.00,
-        reviews: 3000,
     },
     {
         id: 6,
         name: "Air Pods 4",
-        img: "Images/slider-6.webp",
+        image: "Images/slider-6.webp",
         price: 1000.00,
-        reviews: 2000,
     },
 ]
 
@@ -74,7 +105,7 @@ products.forEach((product) => {
                     To Cart
                 </button>
                 <div class="relative">
-                    <img src="${product.img}" alt="" class="rounded-lg">
+                    <image src="${product.image}" alt="" class="rounded-lg">
                     <div
                         class="absolute right-[10px] top-[10px] w-[35px] h-[35px] text-[22px] flex justify-center items-center bg-white rounded-full  cursor-pointer">
                         <i class="fa-solid fa-heart "></i>
@@ -90,7 +121,6 @@ products.forEach((product) => {
                             <i class="fa-solid fa-star text-yellow-400"></i>
                             <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
                         </div>
-                        <span class="text-gray-500">(${product.reviews})</span>
                     </div>
                     <span class="text-blue-500 font-semibold">$${product.price.toFixed(2)}</span>
                     <button

@@ -21,7 +21,7 @@ function render () {
     <div
                         class="grid grid-cols-2 md:grid-cols-[3fr_1fr_1fr_1fr] justify-items-start md:justify-items-center border-2 border-gray-200/80 rounded-md py-4 2xl:py-5 items-center px-3 2xl:px-0 gap-y-6 md:gap-0 bg-white">
                         <div class="flex gap-1 items-center col-span-2 md:col-span-1">
-                            <img src="${product.img}" class="aspect-square w-[100px] md:w-[180px] rounded-md" alt="">
+                            <image src="${product.image}" class="aspect-square w-[100px] md:w-[180px] rounded-md" alt="">
                             <div class="flex flex-col gap-2 pl-5">
                                 <h3 class="text-xl font-semibold">${product.name}</h3>
                                 <div class="flex items-center gap-15">
