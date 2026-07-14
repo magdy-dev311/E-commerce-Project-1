@@ -24,19 +24,19 @@ if (user.role === "admin") {
 let categories = JSON.parse(localStorage.getItem("categories")) || [
     {
         name: "Electronics",
-        image: "../Images/card-1.png"
+        image: "Images/card-1.png"
     },
     {
         name: "Mans",
-        image: "../Images/Hero - img.png"
+        image: "Images/Hero - img.png"
     },
     {
         name: "Home Decor",
-        image: "../Images/card-3.png"
+        image: "Images/card-3.png"
     },
     {
         name: "Beauty",
-        image: "../Images/card-4.png"
+        image: "Images/card-4.png"
     },
 ]
 
